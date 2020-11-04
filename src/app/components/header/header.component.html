@@ -1,0 +1,9 @@
+<div class="card-header">
+    
+    <ul class="nav justify-content-end">
+        <li class="nav-item" *ngFor="let route of routes; let  i= index">
+          <a class="nav-link {{ i==0?'active':'' }}" routerLink="{{ route.href }}">{{ route.name }}</a>
+        </li>
+        <!-- <a class="nav-link" routerLink="/login">Login</a> -->
+      </ul>
+  </div>

@@ -1,0 +1,19 @@
+<h1>Dynamic form which only one control in FormArray!</h1>
+
+<form [formGroup]="FormTeacher" (ngSubmit)="clicked()">
+    <input type="text" formControlName="name" placeholder="Name..">
+    <input type="number" formControlName="age" placeholder="Age..">
+    <br/> <br/> 
+    <div formArrayName="students">
+        <div *ngFor="let control of students.controls;let i=index" > 
+            <p> Student {{ i + 1 }} <button (click)="removeStudent(i)" class="btn btn-outline-danger"> Remove </button></p>
+            <!-- <br/> -->
+            <!-- <br/> -->
+            <input type="text" [formControlName]="i">
+        </div><br/>
+        <hr>
+        <button type="button" (click)="addStudent()" class="btn btn-outline-info"> Add student </button>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-success"> Save</button>
+</form>

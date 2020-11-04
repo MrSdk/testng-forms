@@ -1,0 +1,6 @@
+<h3> Tutorials </h3>
+<div class="container">
+    <div (click)="remove(i)" *ngFor="let tutorial of subTutorials; let i = index" >
+        <a [href]="tutorial.url" target="_blank"> {{ tutorial.name }} </a>
+    </div>
+</div>

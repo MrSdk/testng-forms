@@ -1,0 +1,48 @@
+ 
+<form [formGroup]="FG" (ngSubmit)="login()" >
+    <div class="form-row">
+       
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01"><i>Username</i></label>
+        <input formControlName="username" type="text" class="form-control {{ !( username.dirty || username.touched )?'': (username.status=='INVALID' ? 'is-invalid' : 'is-valid') }}" id="validationServer01" placeholder="Username" value="Mr_Sdk" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+
+            <div *ngIf="username.invalid && ( username.dirty || username.touched )" >
+                <div *ngIf="username.errors.required" >
+                    Please choose an username
+                </div> 
+            </div>
+ 
+          </div>
+      </div>
+      
+    </div> 
+     <div class="form-row">
+        
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02"><i>Password</i></label>
+        <input formControlName="password" type="password" class="form-control {{ !( password.dirty || password.touched )?'': (password.status=='INVALID' ? 'is-invalid' : 'is-valid') }}" id="validationServer02" placeholder="Password" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+
+            <div *ngIf="password.invalid && ( password.dirty || password.touched )" >
+                <div *ngIf="password.errors.required" >
+                    Please choose an password
+                </div>
+                <div *ngIf="password.errors.minlength" >
+                    You must fill input minimum 8 characters
+                </div>
+            </div>
+ 
+        </div>
+      </div>
+      </div>  
+    <button class="btn btn-primary" type="submit" [disabled]="FG.invalid" >Submit form</button>
+  </form>
+  <br/>
+  <h1> {{ FG.value | json }} </h1>

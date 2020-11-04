@@ -1,0 +1,29 @@
+<h1>Multi Dynamic form in FormArray!</h1>
+
+<form [formGroup]="FormDriver" (ngSubmit)="clicked()">
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" formControlName="username" class="form-control" placeholder="Username..">
+        </div>
+    </div>
+    <br/> <br/> 
+    <div formArrayName="cars">
+        <div *ngFor="let control of cars.controls;let i=index" > 
+            <div [formGroupName]="i" >
+                <p> Car {{ i + 1 }} <button (click)="removeCar(i)" class="btn btn-outline-danger"> Remove </button></p>
+                <div class="row">
+                    <div class="col-md-3"><input type="text" formControlName="color" class="form-control" placeholder="Color..."></div>
+                    <div class="col-md-3"> <input type="text" formControlName="name" class="form-control" placeholder="Name..."></div>
+                </div>
+                
+               
+            </div><br/>
+        </div><br/>
+        <hr>
+        <button type="button" (click)="addCar()" class="btn btn-outline-info"> Add student </button>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-success"> Save</button>
+</form>
+<br><br>
+<h1> {{ FormDriver.value | json }} </h1>

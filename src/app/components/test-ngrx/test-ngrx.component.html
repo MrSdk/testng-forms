@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <app-test-ngrx-create ></app-test-ngrx-create>
+            <hr>
+            <app-test-ngrx-update></app-test-ngrx-update>
+        </div>
+        <div class="col-md-6">
+            <app-test-ngrx-read (UserId)="editId($event)"></app-test-ngrx-read>
+        </div>
+    </div>
+</div>
